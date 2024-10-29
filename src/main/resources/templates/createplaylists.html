@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>create playlist</title>
+</head>
+<body>
+<br>
+<form action="addplaylist" method="post">
+<label>PLAYLIST NAME</label>
+<input type="text" name="name">
+<br>
+<br>
+<!-- from songs below all data is fetched into a variable song using for each loop -->
+<div th:each="song:${songs}">
+<!--song id is used as a reference  -->
+
+	<input type="checkbox" th:name="songs" th:value="${song.id}">
+<!--from there we are rendering the song name below-->
+<!-- we can also use refrence for genre or artist instead for id instead of song.name  -->
+	<label th:text="${song.name}"></label>
+</div>
+<input type="submit" value="ADD PLAYLIST">
+</form>
+</body>
+</html>
